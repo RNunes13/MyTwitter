@@ -1,0 +1,122 @@
+
+@import '../settings/screen-sizes';
+
+/**
+ * Media Queries
+ * Mobile first
+ */
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+  }
+
+  @if $type == max {
+    $width: $width - 1px;
+  }
+
+  @media only screen and (#{$type}-width: $width) {
+    @content;
+  }
+}
+
+/**
+ * Font Weight
+ */
+@mixin font-weight($weight) {
+  $output: $weight;
+
+  @if map-has-key($weights, $weight) {
+      $output: map-get($weights, $weight);
+  }
+
+  font-weight: $output;
+}
+
+/**
+ * Custom default browser scrollbar
+ */
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: darken($primary, 30%);
+    transition: background 300ms ease-in-out;
+
+    &:hover {
+        background: $primary;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  // For Internet Explorer
+  body & {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}
+
+
+@mixin breakpoint($point, $value: 0) {
+  @if $point == mobile {
+    @media only screen
+    and (min-width : 100px)
+    and (max-width: 1080px)
+    {
+      @content;
+    }
+  }
+
+  @else if $point == tablet {
+    @media only screen
+    and (min-width : 761px)
+    and (max-width : 1080px)
+    {
+      @content;
+    }
+  }
+
+  @else if $point == desktop {
+    @media only screen
+    and (min-width : 1081px)
+    and (max-width : 5000px)
+    {
+      @content;
+    }
+  }
+  @else if $point == bigdesktop {
+    @media only screen
+    and (min-width : 1200px)
+    and (max-width : 5000px)
+    {
+      @content;
+    }
+  }
+
+  @else if $point == notMobile {
+    @media only screen
+    and (min-width : 761px)
+    {
+      @content;
+    }
+  }
+
+  @else {
+    @media only screen
+    and ($point: $value)
+    {
+      @content;
+    }
+  }
+}
+
+@mixin between-breakpoints($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}

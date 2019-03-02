@@ -1,0 +1,38 @@
+
+/*
+ * Buttons
+ */
+ .mt-btn {
+  cursor: pointer;
+  @include rem(padding, 5px 24px);
+  @include rem(min-height, 45px);
+  @include rem(font-size, 16px);
+  @include rem(letter-spacing, 1px);
+  @include rem(border-radius, 5px);
+  @include font-weight(bold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: $color-black;
+  outline: none;
+  transition-property: color, border-color, background-color;
+  transition-timing-function: ease;
+  transition-duration: 300ms;
+
+  &--primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+}

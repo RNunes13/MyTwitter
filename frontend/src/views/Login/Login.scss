@@ -1,0 +1,33 @@
+
+@import '../../assets/scss/settings/_config-base';
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  &__wrapper {
+    @include rem(width, 300px);
+
+    @include mq('xs', max) {
+      width: 90%;
+    }
+  }
+
+  &__image {
+    @include rem(width, 100px);
+    @include rem(margin, 0 auto 20px);
+    display: block;
+    transition: width 300ms ease;
+
+    @include mq('xs', max) {
+      @include rem(width, 80px);
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
