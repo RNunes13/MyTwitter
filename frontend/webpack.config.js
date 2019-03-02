@@ -2,6 +2,7 @@ const path = require('path');
 const Package = require('pjson');
 const dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const {
   node_env,
@@ -38,7 +39,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
 
   /* Development server */
@@ -63,7 +64,6 @@ module.exports = {
       favicon: path.resolve(__dirname, './src/assets/favicon.ico'),
       template: path.resolve(__dirname, './src/index.html'),
     }),
-
   ],
 
   module: {
@@ -112,5 +112,30 @@ module.exports = {
         use: ['json-loader'],
       },
     ]
-  }
+  },
+
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+    splitChunks: {
+      chunks: "async",
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
 }
