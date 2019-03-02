@@ -4,7 +4,7 @@ import * as qs from 'querystring';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 // Views
-import { HomeView, LoginView, NotFoundView } from '../views/index';
+import { TimelineView, LoginView, NotFoundView } from '../views/index';
 
 /**
  * Handles redirection safely when not logged in.
@@ -27,7 +27,8 @@ const PrivateRoute = ({ component, ...rest }: any) => (
  */
 export const MainRouter = () => (
   <Switch>
-    <PrivateRoute exact path="/" component={ HomeView } />
+    <PrivateRoute path="/timeline" component={ TimelineView } />
+    <Route exact path="/" render={(): React.ReactNode => <Redirect to="/timeline" /> }/>
     <Route path="/login" component={ LoginView } />
     <Route component={ NotFoundView } />
   </Switch>

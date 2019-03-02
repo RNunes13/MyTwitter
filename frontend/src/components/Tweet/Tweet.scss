@@ -1,0 +1,37 @@
+
+@import '../../assets/scss/settings/_config-base';
+
+.tweet {
+  @include rem(margin, 20px 0 0);
+  @include rem(padding, 20px 20px 0);
+  
+  &:not(:first-child) {
+    border-top: 1px solid #eee;
+  }
+
+  &__content {
+    @include rem(margin, 15px 0);
+    @include rem(font-size, 14px);
+    @include rem(line-height, 20px);
+  }
+
+  &__button {
+    @include rem(font-size, 12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: $color-lynch;
+
+    &:hover {
+      opacity: 0.7
+    }
+  }
+
+  &__like {
+    @include rem(margin-right, 5px);
+  }
+}

@@ -1,10 +1,17 @@
 /*
  * Colors
  */
-$color-white     : #ffffff;
-$color-black     : #000000;
-$color-gainsboro : #dddddd;
-$color-whisper   : #e7e7e7;
-$color-red       : #da3330;
+$color-white        : #ffffff;
+$color-gainsboro    : #dddddd;
+$color-whisper      : #e7e7e7;
+$color-lynch        : #687882;
+$color-red          : #da3330;
+ 
+$color-black        : #000000;
+$color-black-pearl  : #1c2022;
 
-$color-primary   : #00aced;
+$color-blue         : #00aced;
+$color-pattens-blue : #d8e5ed;
+$color-alice-blue   : #e9f1f6;
+
+$color-primary      : $color-blue;

@@ -1,0 +1,48 @@
+
+@import '../../assets/scss/settings/_config-base';
+
+.timeline {
+  &__container {
+    @include rem(padding-top, 40px);
+    @include rem(padding-bottom, 40px);
+    @include rem(width, 600px);
+    transition: width 200ms ease;
+
+    @include mq('sm', max) {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    @include rem(margin, 0 auto 20px);
+    @include rem(width, 40px);
+    display: block;
+    transition: width 300ms ease;
+
+    @include mq('xs', max) {
+      @include rem(width, 30px);
+    }
+  }
+
+  &__form {
+    @include rem(margin, 30px auto 0);
+    @include rem(padding, 20px);
+    @include rem(border-radius, 5px);
+    display: block;
+    background: $color-alice-blue;
+  }
+
+  &__textarea {
+    @include rem(padding, 15px);
+    @include rem(font-size, 14px);
+    @include rem(border-radius, 5px);
+    width: 100%;
+    border: 2px solid $color-pattens-blue;
+    resize: none;
+    outline: none;
+  }
+
+  &__tweets {
+    color: $color-black-pearl;
+  }
+}

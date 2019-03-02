@@ -1,6 +1,6 @@
 const path = require('path');
 const Package = require('pjson');
-const webpack = require('webpack');
+const dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const {
@@ -53,6 +53,9 @@ module.exports = {
   },
 
   plugins: [
+    /* Provide environment variables for APP */
+    new dotenv(),
+
     /* Generates the root index based on template */
     new HtmlWebpackPlugin({
       title: Package.name,
