@@ -1,0 +1,30 @@
+{
+  "name": "my-twitter-back",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RNunes13/MyTwitter"
+  },
+  "author": {
+    "name": "Rodrigo Nunes",
+    "email": "nunesrodrigo13@outlook.com"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.16",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "engines": {
+    "node": ">= 10.15.0"
+  }
+}
